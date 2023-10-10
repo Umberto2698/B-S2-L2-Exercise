@@ -1,5 +1,5 @@
 import exceptions.NumberLessThanZeroException;
-import exceptions.SizeEqualZeroExceptin;
+import exceptions.SizeEqualZeroException;
 
 import java.util.HashSet;
 import java.util.Scanner;
@@ -15,7 +15,7 @@ public class Numero1 {
         try {
             size = Integer.parseInt(input.nextLine());
             if (size < 0) throw new NumberLessThanZeroException();
-            if (size == 0) throw new SizeEqualZeroExceptin();
+            if (size == 0) throw new SizeEqualZeroException();
         } catch (NumberFormatException ex) {
             System.err.println("Hai inserito un valore non numerico");
         } catch (Exception ex) {

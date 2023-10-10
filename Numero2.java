@@ -1,5 +1,5 @@
 import exceptions.NumberLessThanZeroException;
-import exceptions.SizeEqualZeroExceptin;
+import exceptions.SizeEqualZeroException;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -8,18 +8,18 @@ import java.util.Scanner;
 public class Numero2 {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        int quantity = 0;
+        int size = 0;
         try {
             System.out.println("Inserisci un numero intero maggiore di zero e io genererò tanti numeri randomici.");
-            quantity = Integer.parseInt(input.nextLine());
-            if (quantity == 0) throw new SizeEqualZeroExceptin();
-            if (quantity < 0) throw new NumberLessThanZeroException();
+            size = Integer.parseInt(input.nextLine());
+            if (size == 0) throw new SizeEqualZeroException();
+            if (size < 0) throw new NumberLessThanZeroException();
         } catch (NumberFormatException ex) {
             System.err.println("Hai inserito un valore non numerico");
         } catch (Exception ex) {
             System.err.println("Problema generico");
         }
-        ArrayList<Integer> randomNumberList = firstFunction(quantity);
+        ArrayList<Integer> randomNumberList = firstFunction(size);
         System.out.println(randomNumberList);
 
         System.out.println(secondFunction(randomNumberList));
