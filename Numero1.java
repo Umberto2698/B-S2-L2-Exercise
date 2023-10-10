@@ -27,12 +27,13 @@ public class Numero1 {
             String word = input.nextLine();
             boolean b = doubleWordSet.add(word);
             if (!b) wordSet.add(word);
-        System.out.println("Parole ripetute:");
-        if (doubleWordSet.isEmpty()) System.out.println("Nessuna parola  ripetuta.");
-        for (String str : doubleWordSet) {
-            System.out.println(str);
+            System.out.println("Parole ripetute:");
+            if (doubleWordSet.isEmpty()) System.out.println("Nessuna parola  ripetuta.");
+            for (String str : doubleWordSet) {
+                System.out.println(str);
+            }
+            System.out.println("Il numero di parole distinte è " + wordSet.size());
+            System.out.println("L'elenco di parole distinte è il seguente: " + wordSet);
         }
-        System.out.println("Il numero di parole distinte è " + wordSet.size());
-        System.out.println("L'elenco di parole distinte è il seguente: " + wordSet);
     }
 }
