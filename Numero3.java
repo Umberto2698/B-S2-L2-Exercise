@@ -22,9 +22,10 @@ public class Numero3 {
             switch (n) {
                 case 1 -> {
                     System.out.println("Inserisci un nome.");
-                    String name = input.nextLine().trim();
+                    String name = input.nextLine().trim().replaceAll(" ", "");
+                    String number;
                     System.out.println("Inserisci il numero di telefono");
-                    String number = input.nextLine().trim();
+                    number = input.nextLine().trim().replaceAll(" ", "");
                     aggiungAllaRubrica(Rubrica, name, number);
                     TimeUnit.MILLISECONDS.sleep(500);
                     System.out.println("Aggiunto con successo.");
@@ -32,11 +33,12 @@ public class Numero3 {
                 }
                 case 2 -> {
                     System.out.println("Inserisci il nome del contatto da rimuovere.");
-                    String name = input.nextLine().trim();
-                    rimuoviDallaRubrca(Rubrica, name);
-                    TimeUnit.MILLISECONDS.sleep(500);
-                    System.out.println("Rimosso con successo.");
-                    TimeUnit.MILLISECONDS.sleep(500);
+                    String name = input.nextLine().trim().replaceAll(" ", "");
+                    if (rimuoviDallaRubrca(Rubrica, name)) {
+                        TimeUnit.MILLISECONDS.sleep(500);
+                        System.out.println("Rimosso con successo.");
+                        TimeUnit.MILLISECONDS.sleep(500);
+                    }
                 }
                 case 3 -> {
                     int m = 0;
@@ -53,13 +55,14 @@ public class Numero3 {
                         }
                         switch (m) {
                             case 1 -> {
-                                System.out.println("Inserisci il numero che vuoi cercare.");
-                                String number = input.nextLine().trim();
+                                System.out.println("Inserisci il numero di telefono che vuoi cercare.");
+                                String number;
+                                number = input.nextLine().trim().replaceAll(" ", "");
                                 cercaConNumero(Rubrica, number);
                             }
                             case 2 -> {
                                 System.out.println("Inserisci il nome del contatto che vuoi cercare.");
-                                String name = input.nextLine().trim();
+                                String name = input.nextLine().trim().replaceAll(" ", "");
                                 cercaConNome(Rubrica, name);
                             }
                         }
@@ -76,11 +79,13 @@ public class Numero3 {
         mappa.put(name, number);
     }
 
-    public static void rimuoviDallaRubrca(Map<String, String> mappa, String name) {
+    public static boolean rimuoviDallaRubrca(Map<String, String> mappa, String name) {
         if (mappa.containsKey(name)) {
             mappa.remove(name);
+            return true;
         } else {
             System.out.println("Nessun contatto salvato con questo nome");
+            return false;
         }
     }
 

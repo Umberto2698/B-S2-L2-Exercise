@@ -39,16 +39,10 @@ public class Numero2 {
 
     public static ArrayList secondFunction(ArrayList list) {
         ArrayList newList = new ArrayList();
-        for (int i = 0; i < list.size(); i++) {
-            newList.add(list.get(i));
-        }
-        for (int i = 0; i < list.size(); i++) {
-            if (i == list.size()) {
-                newList.add(list.get(i));
-            } else {
-                newList.add(list.get(list.size() - i - 1));
-            }
-        }
+        ArrayList reversedList = new ArrayList(list);
+        Collections.reverse(reversedList);
+        newList.addAll(list);
+        newList.addAll(reversedList);
         return newList;
     }
 

@@ -25,12 +25,8 @@ public class Numero1 {
         for (int i = 0; i < size; i++) {
             System.out.println("Inserisci una parola:");
             String word = input.nextLine();
-            if (wordSet.contains(word)) {
-                doubleWordSet.add(word);
-            } else {
-                wordSet.add(word);
-            }
-        }
+            boolean b = doubleWordSet.add(word);
+            if (!b) wordSet.add(word);
         System.out.println("Parole ripetute:");
         if (doubleWordSet.isEmpty()) System.out.println("Nessuna parola  ripetuta.");
         for (String str : doubleWordSet) {
